@@ -1,5 +1,7 @@
 package entities;
 
+import models.exceptions.ConstructionException;
+
 public class Pergunta {
 	private int ID;
 	private String textoPergunta;
@@ -14,7 +16,7 @@ public class Pergunta {
 	}
 
 	public Pergunta(int ID, String textoPergunta, String opcaoA, String opcaoB, String opcaoC, String opcaoD,
-			String opcaoE, char respostaCorreta) {
+			String opcaoE, char respostaCorreta) throws ConstructionException {
 		this.ID = ID;
 		this.textoPergunta = textoPergunta;
 		this.opcaoA = opcaoA;
@@ -22,7 +24,12 @@ public class Pergunta {
 		this.opcaoC = opcaoC;
 		this.opcaoD = opcaoD;
 		this.opcaoE = opcaoE;
-		this.respostaCorreta = respostaCorreta;
+		this.respostaCorreta = Character.toUpperCase(respostaCorreta);
+		
+		if (this.respostaCorreta != 'A' || this.respostaCorreta != 'B' || this.respostaCorreta != 'C'
+				|| this.respostaCorreta != 'D' || this.respostaCorreta != 'E') {
+			throw new ConstructionException("Essa opção de resposta não é válida");
+		}
 	}
 
 	public int getID() {
