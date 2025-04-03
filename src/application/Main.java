@@ -18,24 +18,25 @@ import models.exceptions.ConstructionException;
 
 public class Main {
 	public static void main(String[] args) {
-		String path = "src\\perguntas.txt";
+		String arquivo = "src\\perguntas.txt";
 		Scanner sc = new Scanner(System.in);
 		int n;
 		String line;
 		
-		do {
-			mostrarMenu();
-			System.out.println();
-			System.out.print("Informe uma opção: ");
-			n = sc.nextInt();
+		try (
+				BufferedReader br = new BufferedReader(new FileReader(arquivo));
+				BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo, true))
+				) {	
+			do {			
 			
-			sc.nextLine();
-			System.out.println();
-			
-			try (
-				BufferedReader br = new BufferedReader(new FileReader(path));
-				BufferedWriter bw = new BufferedWriter(new FileWriter(path))
-				) {
+				mostrarMenu();
+				System.out.println();
+				System.out.print("Informe uma opção: ");
+				n = sc.nextInt();
+				
+				sc.nextLine();
+				System.out.println();
+				
 				switch(n) {
 					case 1:
 						break;
@@ -73,8 +74,9 @@ public class Main {
 						Pergunta pergunta = new Pergunta(i+1, textoPergunta, opcaoA, opcaoB, opcaoC,
 								opcaoD, opcaoE, opcaoCorreta);
 						
-						System.out.println();
-						System.out.println(pergunta);
+						bw.write(pergunta.toString());
+						bw.newLine();
+						bw.flush();
 						
 						break;
 					case 3:
@@ -104,6 +106,7 @@ public class Main {
 						System.out.println();
 						break;
 					}
+				} while (n != 6);
 			}
 			catch (FileNotFoundException e) {
 				System.out.println("Erro: Arquivo não encontrado");
@@ -120,7 +123,6 @@ public class Main {
 			catch (ConstructionException e) {
 				System.out.println("Erro na construção da pergunta: " + e.getMessage());
 			}
-		} while (n != 6);
 	}
 	
 	public static void mostrarMenu() {

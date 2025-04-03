@@ -26,8 +26,9 @@ public class Pergunta {
 		this.opcaoE = opcaoE;
 		this.respostaCorreta = Character.toUpperCase(respostaCorreta);
 		
-		if (this.respostaCorreta != 'A' || this.respostaCorreta != 'B' || this.respostaCorreta != 'C'
-				|| this.respostaCorreta != 'D' || this.respostaCorreta != 'E') {
+		
+		if (this.respostaCorreta != 'A' && this.respostaCorreta != 'B' && this.respostaCorreta != 'C'
+				&& this.respostaCorreta != 'D' && this.respostaCorreta != 'E') {
 			throw new ConstructionException("Essa opção de resposta não é válida");
 		}
 	}
