@@ -67,8 +67,8 @@ public class Main {
 						int i = 0;
 						
 						while (line != null) {
-							i++;
 							line = br.readLine();
+							i++;
 							}
 						
 						Pergunta pergunta = new Pergunta(i+1, textoPergunta, opcaoA, opcaoB, opcaoC,
