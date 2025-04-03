@@ -2,26 +2,26 @@ package entities;
 
 public class Pergunta {
 	private int ID;
-	private String texto_pergunta;
-	private String opcao_A;
-	private String opcao_B;
-	private String opcao_C;
-	private String opcao_D;
-	private String opcao_E;
+	private String textoPergunta;
+	private String opcaoA;
+	private String opcaoB;
+	private String opcaoC;
+	private String opcaoD;
+	private String opcaoE;
 	private char respostaCorreta;
 	
 	public Pergunta() {
 	}
 
-	public Pergunta(int ID, String texto_pergunta, String opcao_A, String opcao_B, String opcao_C, String opcao_D,
-			String opcao_E, char respostaCorreta) {
+	public Pergunta(int ID, String textoPergunta, String opcaoA, String opcaoB, String opcaoC, String opcaoD,
+			String opcaoE, char respostaCorreta) {
 		this.ID = ID;
-		this.texto_pergunta = texto_pergunta;
-		this.opcao_A = opcao_A;
-		this.opcao_B = opcao_B;
-		this.opcao_C = opcao_C;
-		this.opcao_D = opcao_D;
-		this.opcao_E = opcao_E;
+		this.textoPergunta = textoPergunta;
+		this.opcaoA = opcaoA;
+		this.opcaoB = opcaoB;
+		this.opcaoC = opcaoC;
+		this.opcaoD = opcaoD;
+		this.opcaoE = opcaoE;
 		this.respostaCorreta = respostaCorreta;
 	}
 
@@ -30,30 +30,34 @@ public class Pergunta {
 	}
 
 	public String getTexto_pergunta() {
-		return texto_pergunta;
+		return textoPergunta;
 	}
 
 	public String getOpcao_A() {
-		return opcao_A;
+		return opcaoA;
 	}
 
 	public String getOpcao_B() {
-		return opcao_B;
+		return opcaoB;
 	}
 
 	public String getOpcao_C() {
-		return opcao_C;
+		return opcaoC;
 	}
 
 	public String getOpcao_D() {
-		return opcao_D;
+		return opcaoD;
 	}
 
 	public String getOpcao_E() {
-		return opcao_E;
+		return opcaoE;
 	}
 
 	public char getRespostaCorreta() {
 		return respostaCorreta;
-	}	
+	}
+	
+	public String toString() {
+        return ID + "|" + textoPergunta + "|" + opcaoA + "|" + opcaoB + "|" + opcaoC + "|" + opcaoD + "|" + opcaoE + "|" + respostaCorreta;
+    }
 }
