@@ -79,6 +79,8 @@ public class Main {
 						bw.newLine();
 						bw.flush();
 						
+						brContagem.close();
+						
 			            System.out.println("Pergunta cadastrada com sucesso!");
 			            esperarInput();
 						break;
@@ -90,6 +92,8 @@ public class Main {
 				            System.out.println(linhaLeitura);
 				            linhaLeitura = brLeitura.readLine();
 				        }
+				        
+				        brLeitura.close();
 
 				        esperarInput();
 						break;
@@ -120,6 +124,8 @@ public class Main {
 				        	}
 				        }
 				        
+				        brLer.close();
+				        
 				        if (!encontrou) throw new LineNotFoundException("Pergunta com esse ID não existe");
 				        
 				        BufferedWriter bwEscrever = new BufferedWriter(new FileWriter(arquivo));
@@ -129,11 +135,26 @@ public class Main {
 			                bwEscrever.flush();
 				        }
 				        
+				        bwEscrever.close();
+				        
 				        System.out.println("Pergunta removida com sucesso!");						
-												
 						esperarInput();
 						break;
 					case 5:
+						System.out.println("Deseja mesmo apagar todo o arquivo (s/n)? ");
+						char confirmacao = sc.nextLine().charAt(0);
+						
+						if (confirmacao == 'n') {
+							System.out.println("Operação abortada");
+						}
+						else {
+							BufferedWriter bwApagarTudo = new BufferedWriter(new FileWriter(arquivo));
+							bwApagarTudo.write("");
+							bw.flush();
+							System.out.println("Arquivo apagado com sucesso");
+							bwApagarTudo.close();
+						}
+												
 						esperarInput();
 						break;
 					case 6:
@@ -182,6 +203,7 @@ public class Main {
 	
 	public static void esperarInput() {
 		try {
+			System.out.println();
 			System.out.println("Aperte 'ENTER' para continuar");
 			System.in.read();
 		}
