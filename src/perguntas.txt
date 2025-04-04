@@ -1,5 +1,4 @@
 1|Quem descobriu o Brasil?|Pero Vaz de Caminha|Vasco da Gama|Cristóvão Colombo|Pedro Álvares Cabral|Mem de Sá|D2|
 2|Qual é o segundo nome de Napoleão?|Silva|Andrade|John|Peters|Bonaparte|E
 3|1+1|1|2|3|4|5|B
-4|2+2|1|2|3|4|5|D
 5|1|2|3|4|5|e|E

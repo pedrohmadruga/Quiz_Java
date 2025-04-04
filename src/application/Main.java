@@ -10,8 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-
-
+import java.util.List;
 import java.util.Scanner;
 
 import entities.Pergunta;
@@ -98,25 +97,33 @@ public class Main {
 						System.out.print("Informe o ID da pergunta a ser removida: ");
 						int idRemovido = sc.nextInt();
 						sc.nextLine();
+						List<String> linhas = new ArrayList<>();
+						boolean encontrou = false;
 						
 						
 						BufferedReader brLer = new BufferedReader(new FileReader(arquivo));
 						
-						String linhaRemovida = brLer.readLine();
+						String linhaReescrita;
 
-				        while (linhaRemovida != null)  {
-				        	if (Integer.parseInt(linhaRemovida.substring(0, linhaRemovida.indexOf('|'))) != idRemovido) {
-					            linhaRemovida = brLer.readLine();
+				        while ((linhaReescrita = brLer.readLine()) != null)  {
+				        	if (Integer.parseInt(linhaReescrita.substring(0, linhaReescrita.indexOf('|'))) != idRemovido) {
+					            linhas.add(linhaReescrita);
 				        	}
 				        	else {
-				        		break;
+				        		encontrou = true;
 				        	}
 				        }
 				        
-				        if (linhaRemovida == null) throw new LineNotFoundException("Pergunta com esse ID não existe");
-
-				        System.out.println(linhaRemovida);
-						
+				        if (!encontrou) throw new LineNotFoundException("Pergunta com esse ID não existe");
+				        
+				        BufferedWriter bwEscrever = new BufferedWriter(new FileWriter(arquivo));
+				        for (String linha:linhas) {
+				        	bwEscrever.write(linha);
+			                bwEscrever.newLine();
+			                bwEscrever.flush();
+				        }
+				        
+				        System.out.println("Pergunta removida com sucesso!");						
 												
 						esperarInput();
 						break;
