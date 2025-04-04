@@ -4,18 +4,14 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 import entities.Pergunta;
 import models.exceptions.*;
@@ -25,7 +21,6 @@ public class Main {
 		String arquivo = "src\\perguntas.txt";
 		Scanner sc = new Scanner(System.in);
 		int n;
-		String line;
 		
 		try (
 			BufferedReader br = new BufferedReader(new FileReader(arquivo));
@@ -68,7 +63,6 @@ public class Main {
 						List<Pergunta> perguntas = new ArrayList<Pergunta>();
 						
 						String linhaLida;
-						int i = 1;
 						while ((linhaLida = br.readLine()) != null) {
 							String campo[] = linhaLida.split("\\|");
 							
