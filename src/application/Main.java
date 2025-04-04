@@ -7,6 +7,7 @@ import java.io.FileWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 
@@ -79,6 +80,7 @@ public class Main {
 						bw.flush();
 						
 			            System.out.println("Pergunta cadastrada com sucesso!");
+			            esperarInput();
 						break;
 					case 3:
 						BufferedReader brLeitura = new BufferedReader(new FileReader(arquivo));  // Novo BufferedReader
@@ -92,8 +94,29 @@ public class Main {
 				        esperarInput();
 						break;
 					case 4:
+						System.out.print("Informe o ID da pergunta a ser removida: ");
+						int idRemovido = sc.nextInt();
+						sc.nextLine();
+						
+						BufferedReader brRemove = new BufferedReader(new FileReader(arquivo));
+						String linhaRemovida = brRemove.readLine();
+
+				        while (linhaRemovida != null)  {
+				        	if (Integer.parseInt(linhaRemovida.substring(0, linhaRemovida.indexOf('|'))) != idRemovido) {
+					            linhaRemovida = brRemove.readLine();
+				        	}
+				        	else {
+				        		break;
+				        	}
+				        }
+				        
+				        System.out.println(linhaRemovida);
+						
+												
+						esperarInput();
 						break;
 					case 5:
+						esperarInput();
 						break;
 					case 6:
 						System.out.println("Encerrando aplicação. Obrigado por jogar!");
@@ -120,7 +143,7 @@ public class Main {
 				System.out.println("Erro: entrada não foi do tipo esperado");
 			}
 			catch (RuntimeException e) {
-				System.out.println("Ocorreu um erro desconhecido");
+				System.out.println("Ocorreu um erro: " + e.getMessage());
 			}
 			catch (ConstructionException e) {
 				System.out.println("Erro na construção da pergunta: " + e.getMessage());
