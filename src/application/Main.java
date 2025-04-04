@@ -39,6 +39,26 @@ public class Main {
 				
 				switch(n) {
 					case 1:
+						int maxPerguntas = 0;
+						while ((br.readLine()) != null) {
+				            maxPerguntas++;
+				        }
+						
+						System.out.println("Iniciando o Quiz! Quantas perguntas você quer responder (Max = " + maxPerguntas + ")?");
+						int quantidadePerguntas = sc.nextInt();
+						
+						if (quantidadePerguntas < 1 || quantidadePerguntas > maxPerguntas) throw new LineNotFoundException("Quantidade de perguntas inválida");
+						
+						/*
+						Passo a Passo:
+						1. Criar um Set (HashSet) que irá guardar objetos das perguntas
+						2. Ler o arquivo e cadastrar todas as perguntas como objetos do HashSet
+						3. Usar o Math.random() para pegar uma pergunta aleatória do HashSet e exibir na tela.
+						4. Perguntar ao usuário a resposta, com validação de input, e depois excluir a pergunta do HashSet
+						5. Repetir isso uma quantidade de vezes igual ao que o usuário pediu
+						 */
+						
+						esperarInput();
 						break;
 					case 2:
 						System.out.println("Informe o texto da pergunta: ");
@@ -66,9 +86,8 @@ public class Main {
 						int idPergunta = 1; 
 
 					    BufferedReader brContagem = new BufferedReader(new FileReader(arquivo));
-				        String linhaContagem;
 				        
-				        while ((linhaContagem = brContagem.readLine()) != null) {
+				        while ((brContagem.readLine()) != null) {
 				            idPergunta++;
 				        }
 					     
