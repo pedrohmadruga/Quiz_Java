@@ -1,11 +1,11 @@
-1|Quem descobriu o Brasil?|Pero Vaz de Caminha|Vasco da Gama|Cristóvão Colombo|Pedro Álvares Cabral|Mem de Sá|D|
-2|Qual das seguintes pirâmides é a maior, em termos de altitude?|Pirâmide de Kulkucán|Pirâmide Curvada|Pirâmide de Quéops|Pirâmide de Miquerinos|Pirâmide de Quéfren|C|
-3|Qual do seguinte livro não foi escrito por Machado de Assis?|Dom Casmurro|Clara dos Anjos|Memórias Póstumas de Brás Cubas|Quincas Borba|O Alienista|B|
-4|Qual foi o primeiro país a reconhecer a independência do Brasil?|Inglaterra|França|Portugal|Estados Unidos|Espanha|D|
-5|Qual foi o maior império em extensão territorial da história da humanidade?|Império Macedônico|Império Romano|Império Mongol|Império Napoleônico|Império Britânico|E|
-6|Qual a nacionalidade do famoso líder revolucionário Che Guevara?|Mexicano|Cubano|Estadunidense|Espanhol|Argentino|E|
-7|Qual dessas não é uma maravilha do mundo antigo?|Necrópole de Gizé|Estátua de Zeus em Olímpia|Templo de Ártemis|Farol de Alexandria|Jardins Suspensos da Babilônia|A|
-8|Qual dos seguintes personagens mitológicos não era um Semideus?|Hércules|Aquiles|Perseu|Teseu|Odisseu|E|
-9|Quem foi o autor do quadro "O Nascimento de Vênus"?|Leonardo da Vinci|Sandro Boticcelli|Michelangelo|Raphael|Donatello|B|
-10|Qual dos seguintes longa-metragem não foi vencedor do Oscar de Melhor Filme?|Forrest Gump|Coração Valente|Pulp Fiction|Titanic|Gladiador|C|
-11|Qual dos seguintes escritores gregos foi o autor de "Ilíada"?|Homero|Eurípedes|Plutarco|Ésquilo|Sófocles|A|
+1|Quem descobriu o Brasil?|Pero Vaz de Caminha|Vasco da Gama|Cristóvão Colombo|Pedro Álvares Cabral|Mem de Sá|D
+2|Qual das seguintes pirâmides é a maior, em termos de altitude?|Pirâmide de Kulkucán|Pirâmide Curvada|Pirâmide de Quéops|Pirâmide de Miquerinos|Pirâmide de Quéfren|C
+3|Qual do seguinte livro não foi escrito por Machado de Assis?|Dom Casmurro|Clara dos Anjos|Memórias Póstumas de Brás Cubas|Quincas Borba|O Alienista|B
+4|Qual foi o primeiro país a reconhecer a independência do Brasil?|Inglaterra|França|Portugal|Estados Unidos|Espanha|D
+5|Qual foi o maior império em extensão territorial da história da humanidade?|Império Macedônico|Império Romano|Império Mongol|Império Napoleônico|Império Britânico|E
+6|Qual a nacionalidade do famoso líder revolucionário Che Guevara?|Mexicano|Cubano|Estadunidense|Espanhol|Argentino|E
+7|Qual dessas não é uma maravilha do mundo antigo?|Necrópole de Gizé|Estátua de Zeus em Olímpia|Templo de Ártemis|Farol de Alexandria|Jardins Suspensos da Babilônia|A
+8|Qual dos seguintes personagens mitológicos não era um Semideus?|Hércules|Aquiles|Perseu|Teseu|Odisseu|E
+9|Quem foi o autor do quadro "O Nascimento de Vênus"?|Leonardo da Vinci|Sandro Boticcelli|Michelangelo|Raphael|Donatello|B
+10|Qual dos seguintes longa-metragem não foi vencedor do Oscar de Melhor Filme?|Forrest Gump|Coração Valente|Pulp Fiction|Titanic|Gladiador|C
+11|Qual dos seguintes escritores gregos foi o autor de "Ilíada"?|Homero|Eurípedes|Plutarco|Ésquilo|Sófocles|A

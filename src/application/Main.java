@@ -9,9 +9,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 import entities.Pergunta;
 import models.exceptions.*;
@@ -40,23 +44,46 @@ public class Main {
 				switch(n) {
 					case 1:
 						int maxPerguntas = 0;
-						while ((br.readLine()) != null) {
+						BufferedReader brContador = new BufferedReader(new FileReader(arquivo));
+						while ((brContador.readLine()) != null) {
 				            maxPerguntas++;
 				        }
 						
+						brContador.close();
+						
 						System.out.println("Iniciando o Quiz! Quantas perguntas você quer responder (Max = " + maxPerguntas + ")?");
 						int quantidadePerguntas = sc.nextInt();
+						sc.nextLine();
 						
 						if (quantidadePerguntas < 1 || quantidadePerguntas > maxPerguntas) throw new LineNotFoundException("Quantidade de perguntas inválida");
 						
 						/*
 						Passo a Passo:
-						1. Criar um Set (HashSet) que irá guardar objetos das perguntas
-						2. Ler o arquivo e cadastrar todas as perguntas como objetos do HashSet
-						3. Usar o Math.random() para pegar uma pergunta aleatória do HashSet e exibir na tela.
+						1. Criar um ArrayList que irá guardar objetos das perguntas (DONE)
+						2. Ler o arquivo e cadastrar todas as perguntas como objetos em ordem aleatória (DONE)
+						3. Usar um for para pegar a próxima pergunta até chegar na quantidade de perguntas escolhida
 						4. Perguntar ao usuário a resposta, com validação de input, e depois excluir a pergunta do HashSet
 						5. Repetir isso uma quantidade de vezes igual ao que o usuário pediu
 						 */
+						
+						List<Pergunta> perguntas = new ArrayList<Pergunta>();
+						
+						String linhaLida;
+						int i = 1;
+						while ((linhaLida = br.readLine()) != null) {
+							String campo[] = linhaLida.split("\\|");
+							
+							Pergunta pergunta = new Pergunta(Integer.parseInt(campo[0]), campo[1], campo[2], campo[3],
+									campo[4], campo[5], campo[6], campo[7].charAt(0));
+							
+							perguntas.add(pergunta);
+						}
+						
+						Collections.shuffle(perguntas);
+						
+						for (Pergunta pergunta:perguntas) {
+							System.out.println(pergunta);
+						}
 						
 						esperarInput();
 						break;
@@ -87,7 +114,7 @@ public class Main {
 
 					    BufferedReader brContagem = new BufferedReader(new FileReader(arquivo));
 				        
-				        while ((brContagem.readLine()) != null) {
+				        while (brContagem.readLine() != null) {
 				            idPergunta++;
 				        }
 					     

@@ -66,6 +66,6 @@ public class Pergunta {
 	}
 	
 	public String toString() {
-        return ID + "|" + textoPergunta + "|" + opcaoA + "|" + opcaoB + "|" + opcaoC + "|" + opcaoD + "|" + opcaoE + "|" + respostaCorreta + "|";
+        return ID + "|" + textoPergunta + "|" + opcaoA + "|" + opcaoB + "|" + opcaoC + "|" + opcaoD + "|" + opcaoE + "|" + respostaCorreta;
     }
 }
