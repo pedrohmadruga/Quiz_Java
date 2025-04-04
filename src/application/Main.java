@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,7 +15,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import entities.Pergunta;
-import models.exceptions.ConstructionException;
+import models.exceptions.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -98,18 +99,22 @@ public class Main {
 						int idRemovido = sc.nextInt();
 						sc.nextLine();
 						
-						BufferedReader brRemove = new BufferedReader(new FileReader(arquivo));
-						String linhaRemovida = brRemove.readLine();
+						
+						BufferedReader brLer = new BufferedReader(new FileReader(arquivo));
+						
+						String linhaRemovida = brLer.readLine();
 
 				        while (linhaRemovida != null)  {
 				        	if (Integer.parseInt(linhaRemovida.substring(0, linhaRemovida.indexOf('|'))) != idRemovido) {
-					            linhaRemovida = brRemove.readLine();
+					            linhaRemovida = brLer.readLine();
 				        	}
 				        	else {
 				        		break;
 				        	}
 				        }
 				        
+				        if (linhaRemovida == null) throw new LineNotFoundException("Pergunta com esse ID não existe");
+
 				        System.out.println(linhaRemovida);
 						
 												
@@ -147,6 +152,9 @@ public class Main {
 			}
 			catch (ConstructionException e) {
 				System.out.println("Erro na construção da pergunta: " + e.getMessage());
+			}
+			catch (LineNotFoundException e) {
+				System.out.println("Error: " + e.getMessage());
 			}
 	}
 	
