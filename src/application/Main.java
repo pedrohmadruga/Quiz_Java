@@ -62,8 +62,7 @@ public class Main {
 						1. Criar um ArrayList que irá guardar objetos das perguntas (DONE)
 						2. Ler o arquivo e cadastrar todas as perguntas como objetos em ordem aleatória (DONE)
 						3. Usar um for para pegar a próxima pergunta até chegar na quantidade de perguntas escolhida
-						4. Perguntar ao usuário a resposta, com validação de input, e depois excluir a pergunta do HashSet
-						5. Repetir isso uma quantidade de vezes igual ao que o usuário pediu
+						4. Perguntar ao usuário a resposta com validação de input
 						 */
 						
 						List<Pergunta> perguntas = new ArrayList<Pergunta>();
