@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,9 +23,9 @@ public class Main {
 		String line;
 		
 		try (
-				BufferedReader br = new BufferedReader(new FileReader(arquivo));
-				BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo, true))
-				) {	
+			BufferedReader br = new BufferedReader(new FileReader(arquivo));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo, true))
+			) {	
 			do {			
 			
 				mostrarMenu();
@@ -61,33 +60,36 @@ public class Main {
 						
 						System.out.println("Por fim, informe qual é a alternativa correta (A, B, C, D, E): ");
 						char opcaoCorreta = sc.next().charAt(0);
+						sc.nextLine();
 						
-						
-						line = br.readLine();
-						int i = 0;
-						
-						while (line != null) {
-							line = br.readLine();
-							i++;
-							}
-						
-						Pergunta pergunta = new Pergunta(i+1, textoPergunta, opcaoA, opcaoB, opcaoC,
+						int idPergunta = 1; 
+
+					    BufferedReader brContagem = new BufferedReader(new FileReader(arquivo));
+				        String linhaContagem;
+				        
+				        while ((linhaContagem = brContagem.readLine()) != null) {
+				            idPergunta++;
+				        }
+					     
+						Pergunta pergunta = new Pergunta(idPergunta, textoPergunta, opcaoA, opcaoB, opcaoC,
 								opcaoD, opcaoE, opcaoCorreta);
 						
 						bw.write(pergunta.toString());
 						bw.newLine();
 						bw.flush();
 						
+			            System.out.println("Pergunta cadastrada com sucesso!");
 						break;
 					case 3:
-						line = br.readLine();
-						
-						while (line != null) {
-							System.out.println(line);
-							line = br.readLine();
-							}
-						
-						esperarInput();
+						BufferedReader brLeitura = new BufferedReader(new FileReader(arquivo));  // Novo BufferedReader
+				        String linhaLeitura = brLeitura.readLine();
+
+				        while (linhaLeitura != null) {
+				            System.out.println(linhaLeitura);
+				            linhaLeitura = brLeitura.readLine();
+				        }
+
+				        esperarInput();
 						break;
 					case 4:
 						break;
