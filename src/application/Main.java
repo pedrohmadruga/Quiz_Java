@@ -106,11 +106,17 @@ public class Main {
 						String linhaReescrita;
 
 				        while ((linhaReescrita = brLer.readLine()) != null)  {
-				        	if (Integer.parseInt(linhaReescrita.substring(0, linhaReescrita.indexOf('|'))) != idRemovido) {
+				        	int idLinha = Integer.parseInt(linhaReescrita.substring(0, linhaReescrita.indexOf('|')));
+				        	
+				        	if (idLinha < idRemovido) {
 					            linhas.add(linhaReescrita);
 				        	}
-				        	else {
+				        	else if (idLinha == idRemovido) {
 				        		encontrou = true;
+				        	}
+				        	else {
+				        		String novaLinha = (idLinha - 1) + linhaReescrita.substring(linhaReescrita.indexOf('|'));
+				                linhas.add(novaLinha);
 				        	}
 				        }
 				        
