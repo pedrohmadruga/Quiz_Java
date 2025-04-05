@@ -27,7 +27,6 @@ public class Main {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo, true))
 			) {	
 			do {			
-			
 				mostrarMenu();
 				System.out.println();
 				System.out.print("Informe uma opção: ");
@@ -52,10 +51,11 @@ public class Main {
 						
 						if (quantidadePerguntas < 1 || quantidadePerguntas > maxPerguntas) throw new LineNotFoundException("Quantidade de perguntas inválida");
 						
+						BufferedReader brPerguntas = new BufferedReader(new FileReader(arquivo));
 						List<Pergunta> perguntas = new ArrayList<Pergunta>();
 						
 						String linhaLida;
-						while ((linhaLida = br.readLine()) != null) {
+						while ((linhaLida = brPerguntas.readLine()) != null) {
 							String campo[] = linhaLida.split("\\|");
 							
 							Pergunta pergunta = new Pergunta(Integer.parseInt(campo[0]), campo[1], campo[2], campo[3],
@@ -64,6 +64,7 @@ public class Main {
 							perguntas.add(pergunta);
 						}
 						
+						brPerguntas.close();
 						Collections.shuffle(perguntas);
 						
 						int acertos = 0;
@@ -80,11 +81,20 @@ public class Main {
 							
 							char resposta = ' ';
 							do {
-								System.out.println("Informe a sua resposta: ");
+								System.out.print("Informe a sua resposta: ");
 							    String input = sc.nextLine().trim();
 							    
-							    if (input.length() == 0) {
-							        continue;
+							    if (input.isEmpty()) {
+							    	/*
+							    	 Isso é uma gambiarra. Não sei por que, mas a
+							    	 linha de leitura está pegando algum valor no
+							    	 buffer e pulando a leitura, deixando o input
+							    	 vazio. Consegui resolver dessa forma, mas
+							    	 pretendo achar uma solução definitiva.
+							    	 */
+							    	input = sc.nextLine().trim();
+							    	resposta = Character.toUpperCase(input.charAt(0));
+							        
 							    }
 
 							    resposta = Character.toUpperCase(input.charAt(0));
