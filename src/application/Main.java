@@ -52,14 +52,6 @@ public class Main {
 						
 						if (quantidadePerguntas < 1 || quantidadePerguntas > maxPerguntas) throw new LineNotFoundException("Quantidade de perguntas inválida");
 						
-						/*
-						Passo a Passo:
-						1. Criar um ArrayList que irá guardar objetos das perguntas (DONE)
-						2. Ler o arquivo e cadastrar todas as perguntas como objetos em ordem aleatória (DONE)
-						3. Usar um for para pegar a próxima pergunta até chegar na quantidade de perguntas escolhida
-						4. Perguntar ao usuário a resposta com validação de input
-						 */
-						
 						List<Pergunta> perguntas = new ArrayList<Pergunta>();
 						
 						String linhaLida;
@@ -86,10 +78,17 @@ public class Main {
 							
 							System.out.println();
 							
-							char resposta;
+							char resposta = ' ';
 							do {
 								System.out.println("Informe a sua resposta: ");
-								resposta = Character.toUpperCase(sc.nextLine().charAt(0));
+							    String input = sc.nextLine().trim();
+							    
+							    if (input.length() == 0) {
+							        continue;
+							    }
+
+							    resposta = Character.toUpperCase(input.charAt(0));
+
 								
 								if (!respostaValida(resposta)) {
 									System.out.println("Opção inválida. Tente novamente");
@@ -254,7 +253,7 @@ public class Main {
 				System.out.println("Erro: entrada não foi do tipo esperado");
 			}
 			catch (RuntimeException e) {
-				System.out.println("Ocorreu um erro: " + e.getMessage());
+				e.printStackTrace();
 			}
 			catch (ConstructionException e) {
 				System.out.println("Erro na construção da pergunta: " + e.getMessage());
