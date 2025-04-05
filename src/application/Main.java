@@ -91,7 +91,7 @@ public class Main {
 							    	 buffer e pulando a leitura, deixando o input
 							    	 vazio. Consegui resolver dessa forma, mas
 							    	 pretendo achar uma solução definitiva.
-							    	 */
+							    	*/
 							    	input = sc.nextLine().trim();
 							    	resposta = Character.toUpperCase(input.charAt(0));
 							        
@@ -117,10 +117,14 @@ public class Main {
 							}	
 						}
 						
+						limparTela();
+						
 						System.out.println();
 						System.out.println("Fim do quiz. Você acertou " + acertos + " pergunta(s)");
 						
+						sc.nextLine();
 						esperarInput();
+						limparTela();
 						break;
 					case 2:
 						System.out.println("Informe o texto da pergunta: ");
