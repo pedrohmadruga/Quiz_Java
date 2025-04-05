@@ -74,9 +74,42 @@ public class Main {
 						
 						Collections.shuffle(perguntas);
 						
-						for (Pergunta pergunta:perguntas) {
-							System.out.println(pergunta);
+						int acertos = 0;
+						for (int i = 0; i < quantidadePerguntas; i++) {
+							limparTela();
+							System.out.println(perguntas.get(i).getTextoPergunta());
+							System.out.println("A. " + perguntas.get(i).getOpcaoA());
+							System.out.println("B. " + perguntas.get(i).getOpcaoB());
+							System.out.println("C. " + perguntas.get(i).getOpcaoC());
+							System.out.println("D. " + perguntas.get(i).getOpcaoD());
+							System.out.println("E. " + perguntas.get(i).getOpcaoE());
+							
+							System.out.println();
+							
+							char resposta;
+							do {
+								System.out.println("Informe a sua resposta: ");
+								resposta = Character.toUpperCase(sc.nextLine().charAt(0));
+								
+								if (!respostaValida(resposta)) {
+									System.out.println("Opção inválida. Tente novamente");
+								}
+								
+							} while (!respostaValida(resposta));
+							
+							if (resposta == perguntas.get(i).getRespostaCorreta()) {
+								System.out.println("Parabéns! Você acertou!");
+								acertos++;
+								esperarInput();
+							}
+							else {
+								System.out.println("Que pena! Você errou!");
+								esperarInput();
+							}	
 						}
+						
+						System.out.println();
+						System.out.println("Fim do quiz. Você acertou " + acertos + " pergunta(s)");
 						
 						esperarInput();
 						break;
@@ -249,6 +282,16 @@ public class Main {
 		catch (IOException e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
-		
+	}
+	
+	public static void limparTela() {  
+		// Isso é uma gambiarra, não limpa de fato a tela, apenas imprime 10 linhas em branco
+		for (int i = 0; i < 10; i++) System.out.println();
+	}
+	
+	public static boolean respostaValida(char resposta) {
+		if (resposta != 'A' && resposta != 'B' && resposta != 'C'
+			&& resposta != 'D' && resposta != 'E') return false;
+		return true;
 	}
 }

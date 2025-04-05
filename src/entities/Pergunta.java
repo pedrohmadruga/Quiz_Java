@@ -37,27 +37,27 @@ public class Pergunta {
 		return ID;
 	}
 
-	public String getTexto_pergunta() {
+	public String getTextoPergunta() {
 		return textoPergunta;
 	}
 
-	public String getOpcao_A() {
+	public String getOpcaoA() {
 		return opcaoA;
 	}
 
-	public String getOpcao_B() {
+	public String getOpcaoB() {
 		return opcaoB;
 	}
 
-	public String getOpcao_C() {
+	public String getOpcaoC() {
 		return opcaoC;
 	}
 
-	public String getOpcao_D() {
+	public String getOpcaoD() {
 		return opcaoD;
 	}
 
-	public String getOpcao_E() {
+	public String getOpcaoE() {
 		return opcaoE;
 	}
 
