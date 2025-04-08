@@ -266,13 +266,13 @@ public class Main {
 				System.out.println("Erro: entrada não foi do tipo esperado");
 			}
 			catch (RuntimeException e) {
-				e.printStackTrace();
+				System.out.println("Erro: ocorreu um erro desconhecido.");
 			}
 			catch (ConstructionException e) {
 				System.out.println("Erro na construção da pergunta: " + e.getMessage());
 			}
 			catch (LineNotFoundException e) {
-				System.out.println("Error: " + e.getMessage());
+				System.out.println("Erro: " + e.getMessage());
 			}
 	}
 	
