@@ -93,7 +93,6 @@ public class Main {
 							    	 pretendo achar uma solução definitiva.
 							    	*/
 							    	input = sc.nextLine().trim();
-							    	resposta = Character.toUpperCase(input.charAt(0));
 							        
 							    }
 
